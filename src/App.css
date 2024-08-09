@@ -1,38 +1,389 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1f1f1f;
+  color: #fff;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 280px;
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  padding: 30px 20px;
+  z-index: 10;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.notes-list {
+  flex: 1;
+  overflow-y: auto;
+  
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.note-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 12px;
+}
+
+.note-item:hover {
+  background-color: #f0f0f0;
+  border-radius: 12px;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.sticky-add-button {
+  position: sticky;
+  bottom: 50px;
+  right: 12px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 12px;
+}
+
+.add-button {
+  width: 60px;
+  height: 60px;
+  background-color: #16008b;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-content {
+  flex: 1;
+  background-color: #dae5f6;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #000;
+}
+
+.default-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.default-content img {
+  width: 80%;
+  max-width: 400px;
+}
+
+.main-content h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.main-content p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.note-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.note-header {
+  background-color: #0018fa;
   color: white;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-radius: 8px;
 }
 
-.App-link {
-  color: #61dafb;
+.note-header .note-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.note-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.note-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 10px;
+text-align: left;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+
+.note-footer {
+  text-align: right;
+  font-size: 12px;
+  color: #555;
+}
+.note-input {
+  display: flex;
+
+  background-color: #0018fa;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+  height: 200px;
+  position: relative;
+
+}
+
+.note-input textarea {
+  font-size: 20px;
+  flex: 1;
+  padding: 8px;
+  
+  border: none;
+  border-radius: 4px;
+  margin-right: 10px;
+  height: 100%;
+  resize: none;
+  overflow: auto;
+}
+
+.note-input button {
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+ 
+ color:black;
+  border: none;
+  padding: 10px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.note-input button:disabled {
+  color: rgba(171, 171, 171, 1);
+  background-color: white;
+  cursor: not-allowed;
+}
+
+.note-body::-webkit-scrollbar {
+  width: 3px; /* Width of the scrollbar */
+  height: 10px; /* Height of the scrollbar (for horizontal scrolling) */
+  background-color: rgba(0, 0, 0, 0.63);
+}
+
+.note-body::-webkit-scrollbar-thumb {
+  background-color: white; /* Color of the scrollbar thumb */
+  border-radius: 5.5px; /* Radius of the scrollbar thumb */
+}
+
+.note-body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.63); /* Background color of the scrollbar track */
+  border-radius: 5.5px; /* Radius of the scrollbar track */
+}
+
+.note-body::-webkit-scrollbar-corner {
+  background: transparent; /* Background color for the bottom-right corner */
+}
+
+/* ... existing CSS ... */
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+ 
+  width: 400px; /* Adjust width as needed */
+}
+
+.modal-content input {
+  width:250px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.color-picker {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  gap:12px;
+}
+
+.colors {
+  display: flex;
+  margin-top: 5px;
+  gap: 5px;
+}
+
+.color-option {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+.color-option:hover{
+  width: 35px;
+  height: 35px;
+}
+.modal-content{
+  display: flex;
+  align-items: flex-start;
+  color: #000;
+  flex-direction: column;
+}
+.modal-group{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap:12px;
+  
+}
+.modal-content button {
+  background-color: #0018fa;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.modal-content button:hover {
+  opacity: 0.8;
+}
+
+/* App.css */
+
+/* Hide the sidebar on mobile screens */
+.sidebar.hidden {
+  display: none;
+}
+
+.main-content.full-width {
+  width: 100%;
+  margin-left: 0;
+}
+
+/* Style for the back button in the note header */
+.note-header .back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  font-size: 1.5rem;
+  margin-right: 12px;
+}
+
+/* Ensure mobile view takes full width */
+@media (max-width: 768px) {
+  .app {
+    display: flex;
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .sidebar {
+    width: 100%;
+    height: 100%;
+    
+  }
+
+  .main-content {
+    flex: 1;
+    margin-left: 0;
+  }
+  .default-content{
+    display: none;
+  }
+  .sticky-add-button {
+    position: sticky;
+    bottom: 40px;
+   
+    display: flex;
+    justify-content: flex-end;
+    
+    padding-right:20px;
+  }
+  
+  .note-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 4px;
+  }
+  .note-card{
+    width:90%;
+   
   }
 }
+

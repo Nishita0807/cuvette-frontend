@@ -1,0 +1,91 @@
+.sticky-header {
+    position: relative;
+    background-color: #fff;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .sticky-header.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  
+  .sticky-add-button {
+    position: relative;
+    background-color: #fff;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .sticky-add-button.sticky {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+  }
+  
+  .sticky-add-button button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .content {
+    padding: 2rem;
+    background-color: #f2f2f2;
+    margin-bottom: 2rem;
+  }
+  
+  .side-menu {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+  }
+  
+  .side-menu ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .side-menu li {
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .side-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  .side-menu .icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
+    margin-right: 1rem;
+  }
+  
+  .illustration {
+    /* Add styles for the illustration */
+    width: 100%;
+    height: 300px;
+    background-color: #eee;
+    margin: 2rem 0;
+  }
+  
+  .encrypted {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #777;
+  }
