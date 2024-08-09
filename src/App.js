@@ -35,7 +35,7 @@ function App() {
 
   const fetchGroups = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/groups'); // Replace with your backend URL
+      const response = await axios.get('https://cuvette-backend-flax.vercel.app/groups'); // Replace with your backend URL
       setGroups(response.data);
     } catch (error) {
       console.error(error);
@@ -54,7 +54,7 @@ function App() {
 
   const fetchNotes = async (groupId) => {
     try {
-      const response = await axios.get(`http://localhost:5000/notes/${groupId}`);
+      const response = await axios.get(`https://cuvette-backend-flax.vercel.app/notes/${groupId}`);
       setNotes(response.data);
     } catch (error) {
       console.error(error);
@@ -69,7 +69,7 @@ function App() {
     if (inputValue.trim() === "") return;
 
     try {
-      const response = await axios.post(`http://localhost:5000/notes/${selectedGroup._id}`, {
+      const response = await axios.post(`https://cuvette-backend-flax.vercel.app/notes/${selectedGroup._id}`, {
         text: inputValue
       });
       if (response.status === 201) {
@@ -101,7 +101,7 @@ function App() {
     if (newGroupName.trim() === "") return;
 
     try {
-      const response = await axios.post('http://localhost:5000/groups', {
+      const response = await axios.post('https://cuvette-backend-flax.vercel.app/groups', {
         groupName: newGroupName,
         groupColor: newGroupColor
       });
